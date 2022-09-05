@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'post',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 ROOT_URLCONF = 'config.urls'
 
@@ -71,6 +76,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+AUTH_USER_MODEL = "accounts.User"
 
 
 # Database
@@ -126,8 +132,11 @@ STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
 
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
